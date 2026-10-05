@@ -1,0 +1,27 @@
+{
+  "failure": "payment interrupted by killing payment-1 mid-transaction",
+  "kill_time_s": 0.37,
+  "replay_status": "DUPLICATE",
+  "recovery_report": {
+    "instance": "afb56ebdb6b9",
+    "lastCheckpointId": 3287,
+    "recoveryMillis": 15,
+    "committedAmountKzt": 4914315,
+    "committedPayments": 3297,
+    "interruptedPayments": 3284,
+    "status": "RECOVERED"
+  },
+  "summary": {
+    "requests": 333,
+    "ok": 309,
+    "failed": 24,
+    "success_rate": 92.79,
+    "avg_latency_ok_s": 0.027,
+    "max_latency_ok_s": 0.224,
+    "outcomes": {
+      "http_503": 24
+    }
+  },
+  "mode": "baseline",
+  "ts": "2026-10-05 17:22:14"
+}

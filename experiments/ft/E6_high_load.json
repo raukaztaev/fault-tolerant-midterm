@@ -1,0 +1,55 @@
+{
+  "failure": "high load: 24 concurrent payment workers for 30 s",
+  "summary": {
+    "requests": 4823,
+    "ok": 4773,
+    "failed": 50,
+    "success_rate": 98.96,
+    "avg_latency_ok_s": 0.141,
+    "max_latency_ok_s": 0.625,
+    "outcomes": {
+      "http_503": 50
+    }
+  },
+  "gateway_stats": {
+    "records": {
+      "requests": 0,
+      "successes": 0,
+      "failures": 0,
+      "availabilityPercent": 100.0,
+      "avgLatencyMillis": 0,
+      "breakerRejections": 0,
+      "circuitState": "CLOSED"
+    },
+    "payments": {
+      "requests": 4823,
+      "successes": 4773,
+      "failures": 150,
+      "availabilityPercent": 98.96,
+      "avgLatencyMillis": 133,
+      "breakerRejections": 0,
+      "circuitState": "CLOSED"
+    },
+    "students": {
+      "requests": 0,
+      "successes": 0,
+      "failures": 0,
+      "availabilityPercent": 100.0,
+      "avgLatencyMillis": 0,
+      "breakerRejections": 0,
+      "circuitState": "CLOSED"
+    },
+    "timetable": {
+      "requests": 0,
+      "successes": 0,
+      "failures": 0,
+      "availabilityPercent": 100.0,
+      "avgLatencyMillis": 0,
+      "breakerRejections": 0,
+      "circuitState": "CLOSED"
+    },
+    "uptimeSince": "2026-10-05T12:12:41.038930382Z"
+  },
+  "mode": "ft",
+  "ts": "2026-10-05 17:12:41"
+}

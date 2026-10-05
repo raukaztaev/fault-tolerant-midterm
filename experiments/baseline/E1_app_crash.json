@@ -1,0 +1,19 @@
+{
+  "failure": "application crash (docker kill student-1)",
+  "kill_time_s": 0.18,
+  "recovery_restart_s": null,
+  "summary": {
+    "requests": 12,
+    "ok": 0,
+    "failed": 12,
+    "success_rate": 0.0,
+    "avg_latency_ok_s": 0.0,
+    "max_latency_ok_s": 0,
+    "outcomes": {
+      "http_503": 2,
+      "timeout": 10
+    }
+  },
+  "mode": "baseline",
+  "ts": "2026-10-05 17:16:31"
+}

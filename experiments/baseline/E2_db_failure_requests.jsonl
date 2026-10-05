@@ -1,0 +1,12 @@
+{"ts": 1791202611.327, "id": "W1-0001", "op": "payments", "latency_s": 12.003, "http": 0, "outcome": "timeout"}
+{"ts": 1791202611.328, "id": "W2-0001", "op": "payments", "latency_s": 12.005, "http": 0, "outcome": "timeout"}
+{"ts": 1791202611.329, "id": "W0-0001", "op": "payments", "latency_s": 12.005, "http": 0, "outcome": "timeout"}
+{"ts": 1791202623.333, "id": "W2-0002", "op": "payments", "latency_s": 12.004, "http": 0, "outcome": "timeout"}
+{"ts": 1791202623.335, "id": "W1-0002", "op": "payments", "latency_s": 12.007, "http": 0, "outcome": "timeout"}
+{"ts": 1791202623.336, "id": "W0-0002", "op": "payments", "latency_s": 12.007, "http": 0, "outcome": "timeout"}
+{"ts": 1791202630.398, "id": "W0-0003", "op": "payments", "latency_s": 7.062, "http": 503, "outcome": "http_503"}
+{"ts": 1791202630.399, "id": "W1-0003", "op": "payments", "latency_s": 7.063, "http": 503, "outcome": "http_503"}
+{"ts": 1791202630.399, "id": "W2-0003", "op": "payments", "latency_s": 7.064, "http": 503, "outcome": "http_503"}
+{"ts": 1791202637.397, "id": "W0-0004", "op": "payments", "latency_s": 6.998, "http": 503, "outcome": "http_503"}
+{"ts": 1791202637.397, "id": "W2-0004", "op": "payments", "latency_s": 6.998, "http": 503, "outcome": "http_503"}
+{"ts": 1791202637.397, "id": "W1-0004", "op": "payments", "latency_s": 6.999, "http": 503, "outcome": "http_503"}

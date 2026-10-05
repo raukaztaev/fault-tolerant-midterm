@@ -1,0 +1,317 @@
+{
+  "baseline": {
+    "observation_window_s": 145,
+    "failure_episodes": 5,
+    "total_requests": 3481,
+    "successful": 3344,
+    "failed": 137,
+    "request_availability_percent": 96.064,
+    "time_availability_percent": 33.713,
+    "total_downtime_s": 96.12,
+    "total_uptime_s": 48.88,
+    "MTTR_s": 19.22,
+    "MTTF_s": 9.78,
+    "MTBF_s": 29.0,
+    "failure_rate_per_hour": 124.1379,
+    "per_experiment": {
+      "E1_app_crash": {
+        "requests": 12,
+        "ok": 0,
+        "failed": 12,
+        "success_rate": 0.0,
+        "downtime_estimate_s": 24.01,
+        "failed_request_timestamps": [
+          1791202444.6,
+          1791202444.6,
+          1791202444.6,
+          1791202444.6,
+          1791202456.6,
+          1791202456.6,
+          1791202456.61,
+          1791202456.61,
+          1791202463.28,
+          1791202463.28,
+          1791202468.61,
+          1791202468.61
+        ]
+      },
+      "E2_db_failure": {
+        "requests": 12,
+        "ok": 0,
+        "failed": 12,
+        "success_rate": 0.0,
+        "downtime_estimate_s": 26.07,
+        "failed_request_timestamps": [
+          1791202611.33,
+          1791202611.33,
+          1791202611.33,
+          1791202623.33,
+          1791202623.34,
+          1791202623.34,
+          1791202630.4,
+          1791202630.4,
+          1791202630.4,
+          1791202637.4,
+          1791202637.4,
+          1791202637.4
+        ]
+      },
+      "E3_service_timeout": {
+        "requests": 47,
+        "ok": 47,
+        "failed": 0,
+        "success_rate": 100.0,
+        "downtime_estimate_s": 0.0,
+        "failed_request_timestamps": []
+      },
+      "E4_node_failure": {
+        "requests": 6,
+        "ok": 0,
+        "failed": 6,
+        "success_rate": 0.0,
+        "downtime_estimate_s": 12.01,
+        "failed_request_timestamps": [
+          1791202699.08,
+          1791202699.08,
+          1791202699.08,
+          1791202711.09,
+          1791202711.09,
+          1791202711.09
+        ]
+      },
+      "E5_corrupted_transaction": {
+        "requests": 333,
+        "ok": 309,
+        "failed": 24,
+        "success_rate": 92.79,
+        "downtime_estimate_s": 5.38,
+        "failed_request_timestamps": [
+          1791202929.34,
+          1791202929.66,
+          1791202929.68,
+          1791202930.04,
+          1791202930.36,
+          1791202930.37,
+          1791202930.75,
+          1791202931.07,
+          1791202931.07,
+          1791202931.45,
+          1791202931.79,
+          1791202931.79,
+          1791202932.14,
+          1791202932.53,
+          1791202932.53,
+          1791202932.83,
+          1791202933.26,
+          1791202933.26,
+          1791202933.54,
+          1791202933.98
+        ]
+      },
+      "E6_high_load": {
+        "requests": 3071,
+        "ok": 2988,
+        "failed": 83,
+        "success_rate": 97.3,
+        "downtime_estimate_s": 28.65,
+        "failed_request_timestamps": [
+          1791202761.49,
+          1791202761.67,
+          1791202761.77,
+          1791202762.62,
+          1791202762.65,
+          1791202763.01,
+          1791202763.48,
+          1791202763.51,
+          1791202764.16,
+          1791202764.44,
+          1791202764.95,
+          1791202765.58,
+          1791202765.64,
+          1791202767.1,
+          1791202767.1,
+          1791202767.81,
+          1791202768.02,
+          1791202768.26,
+          1791202769.03,
+          1791202769.11
+        ]
+      }
+    },
+    "mode": "baseline"
+  },
+  "fault_tolerant": {
+    "observation_window_s": 145,
+    "failure_episodes": 3,
+    "total_requests": 7113,
+    "successful": 7051,
+    "failed": 62,
+    "request_availability_percent": 99.128,
+    "time_availability_percent": 80.303,
+    "total_downtime_s": 28.56,
+    "total_uptime_s": 116.44,
+    "MTTR_s": 9.52,
+    "MTTF_s": 38.81,
+    "MTBF_s": 48.33,
+    "failure_rate_per_hour": 74.4828,
+    "per_experiment": {
+      "E1_app_crash": {
+        "requests": 34,
+        "ok": 34,
+        "failed": 0,
+        "success_rate": 100.0,
+        "downtime_estimate_s": 0.0,
+        "failed_request_timestamps": []
+      },
+      "E2_db_failure": {
+        "requests": 956,
+        "ok": 950,
+        "failed": 6,
+        "success_rate": 99.37,
+        "downtime_estimate_s": 12.02,
+        "failed_request_timestamps": [
+          1791202149.12,
+          1791202149.12,
+          1791202149.13,
+          1791202161.12,
+          1791202161.12,
+          1791202161.13
+        ]
+      },
+      "E3_service_timeout": {
+        "requests": 47,
+        "ok": 47,
+        "failed": 0,
+        "success_rate": 100.0,
+        "downtime_estimate_s": 0.0,
+        "failed_request_timestamps": []
+      },
+      "E4_node_failure": {
+        "requests": 24,
+        "ok": 24,
+        "failed": 0,
+        "success_rate": 100.0,
+        "downtime_estimate_s": 0.0,
+        "failed_request_timestamps": []
+      },
+      "E5_corrupted_transaction": {
+        "requests": 1229,
+        "ok": 1223,
+        "failed": 6,
+        "success_rate": 99.51,
+        "downtime_estimate_s": 0.73,
+        "failed_request_timestamps": [
+          1791202329.78,
+          1791202329.78,
+          1791202329.81,
+          1791202330.49,
+          1791202330.5,
+          1791202330.51
+        ]
+      },
+      "E6_high_load": {
+        "requests": 4823,
+        "ok": 4773,
+        "failed": 50,
+        "success_rate": 98.96,
+        "downtime_estimate_s": 15.81,
+        "failed_request_timestamps": [
+          1791202345.23,
+          1791202345.7,
+          1791202346.02,
+          1791202346.12,
+          1791202346.63,
+          1791202346.91,
+          1791202346.94,
+          1791202347.49,
+          1791202348.2,
+          1791202348.26,
+          1791202348.39,
+          1791202349.14,
+          1791202349.2,
+          1791202349.3,
+          1791202350.07,
+          1791202350.11,
+          1791202350.22,
+          1791202350.97,
+          1791202351.0,
+          1791202351.1
+        ]
+      }
+    },
+    "mode": "fault-tolerant"
+  },
+  "rbd": {
+    "R_load_balancer": 0.999,
+    "R_app_instance": 0.955,
+    "R_app_subsystem_ft": 0.99797,
+    "R_db_node": 0.93,
+    "R_db_subsystem_ft": 0.9951,
+    "R_network": 0.997,
+    "R_system_baseline": 0.8846,
+    "R_system_ft": 0.98912,
+    "improvement_percent": 10.45
+  },
+  "comparison": [
+    {
+      "experiment": "E1_app_crash",
+      "failure": "application crash (docker kill student-1)",
+      "baseline_success_rate": 0.0,
+      "ft_success_rate": 100.0,
+      "baseline_failed": 12,
+      "ft_failed": 0,
+      "baseline_requests": 12,
+      "ft_requests": 34
+    },
+    {
+      "experiment": "E2_db_failure",
+      "failure": "primary database stopped (docker stop postgres-primary)",
+      "baseline_success_rate": 0.0,
+      "ft_success_rate": 99.37,
+      "baseline_failed": 12,
+      "ft_failed": 6,
+      "baseline_requests": 12,
+      "ft_requests": 956
+    },
+    {
+      "experiment": "E3_service_timeout",
+      "failure": "network delay 2.5 s injected into payment-1 (timeout + retry expected)",
+      "baseline_success_rate": 100.0,
+      "ft_success_rate": 100.0,
+      "baseline_failed": 0,
+      "ft_failed": 0,
+      "baseline_requests": 47,
+      "ft_requests": 47
+    },
+    {
+      "experiment": "E4_node_failure",
+      "failure": "node failure simulated by pausing records-1 container",
+      "baseline_success_rate": 0.0,
+      "ft_success_rate": 100.0,
+      "baseline_failed": 6,
+      "ft_failed": 0,
+      "baseline_requests": 6,
+      "ft_requests": 24
+    },
+    {
+      "experiment": "E5_corrupted_transaction",
+      "failure": "payment interrupted by killing payment-1 mid-transaction",
+      "baseline_success_rate": 92.79,
+      "ft_success_rate": 99.51,
+      "baseline_failed": 24,
+      "ft_failed": 6,
+      "baseline_requests": 333,
+      "ft_requests": 1229
+    },
+    {
+      "experiment": "E6_high_load",
+      "failure": "high load: 24 concurrent payment workers for 30 s",
+      "baseline_success_rate": 97.3,
+      "ft_success_rate": 98.96,
+      "baseline_failed": 83,
+      "ft_failed": 50,
+      "baseline_requests": 3071,
+      "ft_requests": 4823
+    }
+  ]
+}

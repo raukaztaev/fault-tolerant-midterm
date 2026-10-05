@@ -1,0 +1,24 @@
+{
+  "failure": "network delay 2.5 s injected into payment-1 (timeout + retry expected)",
+  "baseline_avg_latency_s": 0.141,
+  "summary": {
+    "requests": 47,
+    "ok": 47,
+    "failed": 0,
+    "success_rate": 100.0,
+    "avg_latency_ok_s": 1.297,
+    "max_latency_ok_s": 2.566,
+    "outcomes": {}
+  },
+  "after_reset": {
+    "requests": 234,
+    "ok": 234,
+    "failed": 0,
+    "success_rate": 100.0,
+    "avg_latency_ok_s": 0.078,
+    "max_latency_ok_s": 0.397,
+    "outcomes": {}
+  },
+  "mode": "baseline",
+  "ts": "2026-10-05 17:21:04"
+}

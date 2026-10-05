@@ -1,0 +1,17 @@
+{
+  "failure": "node failure simulated by pausing records-1 container",
+  "pause_time_s": 0.05,
+  "summary": {
+    "requests": 6,
+    "ok": 0,
+    "failed": 6,
+    "success_rate": 0.0,
+    "avg_latency_ok_s": 0.0,
+    "max_latency_ok_s": 0,
+    "outcomes": {
+      "timeout": 6
+    }
+  },
+  "mode": "baseline",
+  "ts": "2026-10-05 17:18:31"
+}

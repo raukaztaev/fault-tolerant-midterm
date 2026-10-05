@@ -1,0 +1,27 @@
+# Baseline profile overlay: single instances only, no failover targets.
+# Used with: RESILIENCE_MODE=baseline docker compose -f docker-compose.yml -f docker-compose.baseline.yml up
+services:
+  student-2:
+    command: ["true"]
+    entrypoint: ["true"]
+    restart: "no"
+    deploy:
+      replicas: 0
+  payment-2:
+    command: ["true"]
+    entrypoint: ["true"]
+    restart: "no"
+    deploy:
+      replicas: 0
+  records-2:
+    command: ["true"]
+    entrypoint: ["true"]
+    restart: "no"
+    deploy:
+      replicas: 0
+  timetable-2:
+    command: ["true"]
+    entrypoint: ["true"]
+    restart: "no"
+    deploy:
+      replicas: 0

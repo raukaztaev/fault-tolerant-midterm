@@ -1,0 +1,30 @@
+server:
+  port: ${SERVER_PORT:8080}
+spring:
+  application:
+    name: payment-service
+  datasource:
+    url: ${DB_PRIMARY_URL}
+    username: ${DB_USER:university}
+    password: ${DB_PASSWORD:university}
+resilience:
+  mode: ${RESILIENCE_MODE:ft}
+router:
+  service-name: payment-service
+  instances: ${ROUTER_INSTANCES:}
+  timeout-millis: ${ROUTER_TIMEOUT:2000}
+db:
+  primary-url: ${DB_PRIMARY_URL}
+  standby-url: ${DB_STANDBY_URL:}
+  replication-enabled: ${DB_REPLICATION:true}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+logging:
+  pattern:
+    console: "%d{ISO8601} %-5level [%X{requestId}] %logger{36} - %msg%n"

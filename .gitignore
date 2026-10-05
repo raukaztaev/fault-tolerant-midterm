@@ -1,0 +1,7 @@
+# Project exclude paths
+/common/target/
+/gateway/target/
+/payment-service/target/
+/records-service/target/
+/student-service/target/
+/timetable-service/target/

@@ -1,0 +1,231 @@
+name: university-ft
+
+x-common-env: &common-env
+  DB_USER: university
+  DB_PASSWORD: university
+  RESILIENCE_MODE: ${RESILIENCE_MODE:-ft}
+  JAVA_TOOL_OPTIONS: "-XX:MaxRAMPercentage=75"
+
+x-db-env: &db-env
+  DB_PRIMARY_URL: jdbc:postgresql://postgres-primary:5432/university
+  DB_STANDBY_URL: jdbc:postgresql://postgres-standby:5432/university
+  DB_REPLICATION: ${DB_REPLICATION:-true}
+
+x-health: &health
+  test: ["CMD-SHELL", "curl -sf http://localhost:8080/actuator/health | grep -q UP"]
+  interval: 5s
+  timeout: 3s
+  retries: 5
+  start_period: 20s
+
+services:
+  # ---------- Databases ----------
+  postgres-primary:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: university
+      POSTGRES_PASSWORD: university
+      POSTGRES_DB: university
+    volumes:
+      - pgdata-primary:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U university"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  postgres-standby:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: university
+      POSTGRES_PASSWORD: university
+      POSTGRES_DB: university
+    volumes:
+      - pgdata-standby:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U university"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  # ---------- Student service (2 replicas) ----------
+  student-1:
+    build:
+      context: .
+      args:
+        MODULE: student-service
+    image: ftr/student
+    environment:
+      <<: [*common-env, *db-env]
+      SERVER_PORT: 8081
+    depends_on:
+      postgres-primary:
+        condition: service_healthy
+      postgres-standby:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      <<: *health
+      test: ["CMD-SHELL", "curl -sf http://localhost:8081/actuator/health | grep -q UP"]
+
+  student-2:
+    image: ftr/student
+    environment:
+      <<: [*common-env, *db-env]
+      SERVER_PORT: 8081
+    depends_on:
+      postgres-primary:
+        condition: service_healthy
+      postgres-standby:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      <<: *health
+      test: ["CMD-SHELL", "curl -sf http://localhost:8081/actuator/health | grep -q UP"]
+
+  # ---------- Payment service (2 replicas) ----------
+  payment-1:
+    build:
+      context: .
+      args:
+        MODULE: payment-service
+    image: ftr/payment
+    environment:
+      <<: [*common-env, *db-env]
+      SERVER_PORT: 8082
+    depends_on:
+      postgres-primary:
+        condition: service_healthy
+      postgres-standby:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      <<: *health
+      test: ["CMD-SHELL", "curl -sf http://localhost:8082/actuator/health | grep -q UP"]
+
+  payment-2:
+    image: ftr/payment
+    environment:
+      <<: [*common-env, *db-env]
+      SERVER_PORT: 8082
+    depends_on:
+      postgres-primary:
+        condition: service_healthy
+      postgres-standby:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      <<: *health
+      test: ["CMD-SHELL", "curl -sf http://localhost:8082/actuator/health | grep -q UP"]
+
+  # ---------- Records service (2 replicas) ----------
+  records-1:
+    build:
+      context: .
+      args:
+        MODULE: records-service
+    image: ftr/records
+    environment:
+      <<: [*common-env, *db-env]
+      SERVER_PORT: 8083
+    depends_on:
+      postgres-primary:
+        condition: service_healthy
+      postgres-standby:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      <<: *health
+      test: ["CMD-SHELL", "curl -sf http://localhost:8083/actuator/health | grep -q UP"]
+
+  records-2:
+    image: ftr/records
+    environment:
+      <<: [*common-env, *db-env]
+      SERVER_PORT: 8083
+    depends_on:
+      postgres-primary:
+        condition: service_healthy
+      postgres-standby:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      <<: *health
+      test: ["CMD-SHELL", "curl -sf http://localhost:8083/actuator/health | grep -q UP"]
+
+  # ---------- Timetable service (2 replicas) ----------
+  timetable-1:
+    build:
+      context: .
+      args:
+        MODULE: timetable-service
+    image: ftr/timetable
+    environment:
+      <<: [*common-env, *db-env]
+      SERVER_PORT: 8084
+    depends_on:
+      postgres-primary:
+        condition: service_healthy
+      postgres-standby:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      <<: *health
+      test: ["CMD-SHELL", "curl -sf http://localhost:8084/actuator/health | grep -q UP"]
+
+  timetable-2:
+    image: ftr/timetable
+    environment:
+      <<: [*common-env, *db-env]
+      SERVER_PORT: 8084
+    depends_on:
+      postgres-primary:
+        condition: service_healthy
+      postgres-standby:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      <<: *health
+      test: ["CMD-SHELL", "curl -sf http://localhost:8084/actuator/health | grep -q UP"]
+
+  # ---------- Gateway ----------
+  gateway:
+    build:
+      context: .
+      args:
+        MODULE: gateway
+    image: ftr/gateway
+    ports:
+      - "8080:8080"
+    environment:
+      <<: *common-env
+      SERVER_PORT: 8080
+      DB_PRIMARY_URL: jdbc:postgresql://postgres-primary:5432/university
+      DB_STANDBY_URL: ""
+      DB_REPLICATION: "false"
+      GATEWAY_TIMEOUT_MILLIS: ${GATEWAY_TIMEOUT_MILLIS:-6000}
+      # Routing tables: in baseline mode each route points only at instance 1.
+      GATEWAY_ROUTES_STUDENT: ${GATEWAY_ROUTES_STUDENT:-http://student-1:8081,http://student-2:8081}
+      GATEWAY_ROUTES_PAYMENT: ${GATEWAY_ROUTES_PAYMENT:-http://payment-1:8082,http://payment-2:8082}
+      GATEWAY_ROUTES_RECORDS: ${GATEWAY_ROUTES_RECORDS:-http://records-1:8083,http://records-2:8083}
+      GATEWAY_ROUTES_TIMETABLE: ${GATEWAY_ROUTES_TIMETABLE:-http://timetable-1:8084,http://timetable-2:8084}
+    depends_on:
+      - student-1
+      - student-2
+      - payment-1
+      - payment-2
+      - records-1
+      - records-2
+      - timetable-1
+      - timetable-2
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:8080/actuator/health | grep -q UP"]
+      interval: 5s
+      timeout: 3s
+      retries: 5
+      start_period: 20s
+
+volumes:
+  pgdata-primary:
+  pgdata-standby:

@@ -1,0 +1,12 @@
+{"ts": 1791202444.599, "id": "W3-0001", "op": "registrations", "latency_s": 12.008, "http": 0, "outcome": "timeout"}
+{"ts": 1791202444.6, "id": "W1-0001", "op": "registrations", "latency_s": 12.01, "http": 0, "outcome": "timeout"}
+{"ts": 1791202444.6, "id": "W2-0001", "op": "registrations", "latency_s": 12.01, "http": 0, "outcome": "timeout"}
+{"ts": 1791202444.601, "id": "W0-0001", "op": "registrations", "latency_s": 12.01, "http": 0, "outcome": "timeout"}
+{"ts": 1791202456.603, "id": "W3-0002", "op": "registrations", "latency_s": 12.003, "http": 0, "outcome": "timeout"}
+{"ts": 1791202456.604, "id": "W0-0002", "op": "registrations", "latency_s": 12.004, "http": 0, "outcome": "timeout"}
+{"ts": 1791202456.605, "id": "W2-0002", "op": "registrations", "latency_s": 12.004, "http": 0, "outcome": "timeout"}
+{"ts": 1791202456.605, "id": "W1-0002", "op": "registrations", "latency_s": 12.004, "http": 0, "outcome": "timeout"}
+{"ts": 1791202463.284, "id": "W3-0003", "op": "registrations", "latency_s": 6.68, "http": 503, "outcome": "http_503"}
+{"ts": 1791202463.284, "id": "W1-0003", "op": "registrations", "latency_s": 6.68, "http": 503, "outcome": "http_503"}
+{"ts": 1791202468.607, "id": "W2-0003", "op": "registrations", "latency_s": 12.002, "http": 0, "outcome": "timeout"}
+{"ts": 1791202468.607, "id": "W0-0003", "op": "registrations", "latency_s": 12.003, "http": 0, "outcome": "timeout"}

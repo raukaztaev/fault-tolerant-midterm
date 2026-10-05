@@ -1,0 +1,6 @@
+2026-10-05 12:24:09,398 INFO  [] k.a.f.p.PaymentApplication$PaymentController - JOURNAL PFINAL -> PENDING
+2026-10-05 12:24:09,426 INFO  [] k.a.f.p.PaymentApplication$PaymentController - JOURNAL PFINAL -> COMMITTED
+2026-10-05 12:24:09,444 INFO  [] k.a.f.p.PaymentApplication$PaymentController - PAYMENT PFINAL committed in 68 ms (attempts 1, instance 34213e05d4dc)
+2026-10-05 12:24:30,580 INFO  [] k.a.f.p.PaymentApplication$PaymentController - JOURNAL PDEMO3 -> PENDING
+2026-10-05 12:24:30,609 INFO  [] k.a.f.p.PaymentApplication$PaymentController - JOURNAL PDEMO3 -> COMMITTED
+2026-10-05 12:24:30,623 INFO  [] k.a.f.p.PaymentApplication$PaymentController - PAYMENT PDEMO3 committed in 68 ms (attempts 1, instance 34213e05d4dc)

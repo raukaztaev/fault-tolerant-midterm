@@ -1,0 +1,18 @@
+{
+  "failure": "primary database stopped (docker stop postgres-primary)",
+  "stop_time_s": 0.34,
+  "recovery_restart_s": 0.17,
+  "summary": {
+    "requests": 956,
+    "ok": 950,
+    "failed": 6,
+    "success_rate": 99.37,
+    "avg_latency_ok_s": 0.035,
+    "max_latency_ok_s": 4.798,
+    "outcomes": {
+      "timeout": 6
+    }
+  },
+  "mode": "ft",
+  "ts": "2026-10-05 17:09:34"
+}
